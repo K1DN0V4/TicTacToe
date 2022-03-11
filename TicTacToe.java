@@ -14,6 +14,7 @@ public class TicTacToe {
   public TicTacToe() {
 
     board = new char[3][3];
+    gameOver = false;
 
     for(int row = 0; row < board.length; row++) {
       for(int col = 0; col < board[0].length; col++) {
@@ -58,16 +59,16 @@ public class TicTacToe {
     if (player == 'X') {
       board[r][c] = 'X';
       if(isWinner()) {
-        System.out.println("Game over! Player " + player + "wins!");
         gameOver = true;
+        System.out.println("Game over! Player " + player + " wins!");
       }
       player = 'O';
       }
     else {
       board[r][c] = 'O';
       if(isWinner()) {
-        System.out.println("Game over! Player " + player + "wins!");
         gameOver = true;
+        System.out.println("Game over! Player " + player + " wins!");
       }
       player = 'X';
     }
@@ -92,7 +93,11 @@ public class TicTacToe {
       return false;
       }
   } //end checkMove()
+  //*********************************************************
 
+  
+  
+  //*********************************************************
   public boolean checkRows() {
     for(int rows = 0; rows < board.length; rows++) {
       if ((board[rows][0] == player) && (board[rows][1] == player) && (board[rows][2] == player)) {
@@ -114,7 +119,10 @@ public class TicTacToe {
     if (checkDiag())
       return true;
     return false;
-  }
+  } //end isWinner()
+  //*********************************************************
+
+  
 
   //*********************************************************
   public boolean checkCols() {
@@ -138,22 +146,15 @@ public class TicTacToe {
       return true;
     }
     return false;
-  }
+  } //end checkDiag()
   //*********************************************************
 
 
 
   //*********************************************************
   public boolean endGame() {
-    gameOver = false;
-    
-    /*if(isWinner() == true) {
-      System.out.println("Player " + player + " wins!");
-      gameOver = true;
-    }*/
-    
     return gameOver;
-  }
+  } //end endGame()
   //*********************************************************
   
 }//end TicTacToe

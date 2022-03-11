@@ -3,7 +3,7 @@ class Main {
     
     TicTacToe game = new TicTacToe();
 
-    while(!game.endGame()){
+    while(game.endGame() == false){
       game.displayBoard();
       game.playerMove();
     }

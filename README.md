@@ -6,7 +6,7 @@ Includes:
 - File with all the methods
 
 Needs:
-- Method to check for invalid moves (anything outside the range 0-2)
+- Check for invalid moves (anything outside the range 0-2)
 - Gives the option to quit (Sentinel value? If you use -1, you may want to double check that option).
 - Method to check for stale mate game
 - Give the option to play again

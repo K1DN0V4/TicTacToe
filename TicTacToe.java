@@ -21,7 +21,7 @@ public class TicTacToe {
         board[row][col] = ' ';
       }
     }
-    player = 'X';
+    this.player = player;
     input = new Scanner(System.in);
   } //end TicTacToe()
   //*********************************************************

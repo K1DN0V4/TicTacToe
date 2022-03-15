@@ -57,6 +57,7 @@ public class TicTacToe {
       }
 
     if (player == 'X') {
+      board[r][c] = 'X';
       if(!(r == 4) && (c == 4)){
         board[r][c] = 'X';
       }
@@ -92,6 +93,9 @@ public class TicTacToe {
       }
       System.out.println("That move is invalid, please try again in the range of 0 - 2");
         return false;
+    }
+    else if(isFull()){
+      return gameOver;
     }
     else if(board[r][c] == ' '){
       return true;
@@ -164,9 +168,31 @@ public class TicTacToe {
 
 
   //*********************************************************
+  public boolean isFull() {
+    
+    int count = 0;
+    
+    for(int row = 0; row < board.length; row++) {
+      for(int col = 0; col < board[0].length; col++) {
+        if((board[row][col] == 'X') || (board[row][col] == 'O')) {
+          count++;
+          if(count == 9){
+            gameOver = true;
+            return gameOver;
+          }
+        }
+      }
+    }
+    return false;
+  }
+  //*********************************************************
+
+
+
+  //*********************************************************
   public boolean endGame() {
-    System.out.println("Game over");
     return gameOver;
+    
   } //end endGame()
   //*********************************************************
 

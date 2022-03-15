@@ -165,7 +165,7 @@ public class TicTacToe {
 
   //*********************************************************
   public boolean endGame() {
-    System.out.println("Game over")
+    System.out.println("Game over");
     return gameOver;
   } //end endGame()
   //*********************************************************

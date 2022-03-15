@@ -11,7 +11,7 @@ public class TicTacToe {
 
   
   //*********************************************************
-  public TicTacToe() {
+  public TicTacToe(char player) {
 
     board = new char[3][3];
     gameOver = false;
@@ -49,15 +49,17 @@ public class TicTacToe {
     boolean canMove = false;
 
     while(!canMove){
-      System.out.println("Player " + player + " where to move (row)?");
+      System.out.println("Player " + player + " where to move (row)? If you would like to quit put 4 for both row and column");
       r = input.nextInt();
-      System.out.println("Player " + player + " where to move (column)?");
+      System.out.println("Player " + player + " where to move (column)? If you would like to quit put 4 for both row and column");
       c = input.nextInt();
       canMove = checkMove(r, c);
       }
 
     if (player == 'X') {
-      board[r][c] = 'X';
+      if(!(r == 4) && (c == 4)){
+        board[r][c] = 'X';
+      }
       if(isWinner()) {
         gameOver = true;
         System.out.println("Game over! Player " + player + " wins!");
@@ -72,7 +74,6 @@ public class TicTacToe {
       }
       player = 'X';
     }
-    
   } //end playerMove()
   //*********************************************************
   
@@ -81,7 +82,18 @@ public class TicTacToe {
   //*********************************************************
   public boolean checkMove(int r, int c){
 
-    if(board[r][c] == ' '){
+    //int row = r;
+    //int column = c;
+
+    if((r < 0) || (r > 2) || (c < 0) || (c > 2)) {
+      if((r == 4) && (c == 4)) {
+        gameOver = true;
+        return gameOver;
+      }
+      System.out.println("That move is invalid, please try again in the range of 0 - 2");
+        return false;
+    }
+    else if(board[r][c] == ' '){
       return true;
     }
     else if(board[r][c] == player) {
@@ -153,8 +165,13 @@ public class TicTacToe {
 
   //*********************************************************
   public boolean endGame() {
+    System.out.println("Game over")
     return gameOver;
   } //end endGame()
   //*********************************************************
-  
+
+
+
+  //*********************************************************
+
 }//end TicTacToe

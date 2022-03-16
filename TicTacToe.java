@@ -27,6 +27,18 @@ public class TicTacToe {
   //*********************************************************
 
 
+
+  //*********************************************************
+  public void clearBoard() {
+    for(int row = 0; row < board.length; row++) {
+      for(int col = 0; col < board[0].length; col++) {
+        board[row][col] = ' ';
+      }
+    }
+  } //end clearBoard()
+  //*********************************************************
+
+
   
   //*********************************************************
   public void displayBoard() {
@@ -55,8 +67,10 @@ public class TicTacToe {
       c = input.nextInt();
       canMove = checkMove(r, c);
       }
-
-    if (player == 'X') {
+    if( gameOver ){
+      System.out.println("Thanks for playing!");
+    }
+    else if (player == 'X') {
       board[r][c] = 'X';
       if(!(r == 4) && (c == 4)){
         board[r][c] = 'X';
@@ -81,7 +95,7 @@ public class TicTacToe {
 
   
   //*********************************************************
-  public boolean checkMove(int r, int c){
+  public boolean checkMove(int r, int c) {
 
     //int row = r;
     //int column = c;
@@ -92,10 +106,8 @@ public class TicTacToe {
         return gameOver;
       }
       System.out.println("That move is invalid, please try again in the range of 0 - 2");
-        return false;
-    }
-    else if(isFull()){
-      return gameOver;
+      return false;
+      
     }
     else if(board[r][c] == ' '){
       return true;
@@ -103,6 +115,9 @@ public class TicTacToe {
     else if(board[r][c] == player) {
       System.out.println("You already moved there.");
       return false;
+    }
+    else if(isFull()){
+      return gameOver;
     }
     else {
       System.out.println("The other player already moved there.");
@@ -184,20 +199,34 @@ public class TicTacToe {
       }
     }
     return false;
-  }
+  } //end isFull()
   //*********************************************************
 
 
 
   //*********************************************************
-  public boolean endGame() {
+  public boolean endGame() { 
     return gameOver;
-    
+    //return replayGame();
   } //end endGame()
   //*********************************************************
 
 
 
+  //*********************************************************
+  public boolean replayGame() {
+    int replayName;
+
+    System.out.println("Would you like to play again? 3 for yes 4 for no");
+    replayName = input.nextInt();
+    //input.nextLine();
+
+    if(replayName == 3) {
+      gameOver = false;
+      clearBoard();
+    }
+    return gameOver;
+  } //end replayGame()
   //*********************************************************
 
 }//end TicTacToe

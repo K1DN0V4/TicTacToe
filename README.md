@@ -11,4 +11,6 @@ Includes:
 Needs:
 - Allows replay
 - Quit option to actually work
+
+Might add:
 - Maybe better whitespace while playing

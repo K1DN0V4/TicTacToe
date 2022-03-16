@@ -4,7 +4,7 @@ class Main {
   public static void main(String[] args) {
 
     Scanner input;
-    int confirm;
+    //int confirm;
     String player;
     char player2;
     input = new Scanner(System.in);

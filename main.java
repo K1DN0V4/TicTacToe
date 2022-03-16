@@ -11,9 +11,9 @@ class Main {
     TicTacToe game;
     boolean again = false;
     
-    System.out.println("Would you like to play? Put in 3 to play and 4 to quit");
+    /*System.out.println("Would you like to play? Put in 3 to play and 4 to quit");
     confirm = input.nextInt();
-    input.nextLine();
+    input.nextLine();*/
     System.out.println("Would you like to use X or O? Input a single character to choose");
     player = input.nextLine();
     player = player.substring(0,1).toUpperCase();
